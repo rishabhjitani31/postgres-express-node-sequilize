@@ -2,6 +2,7 @@ const todosController = require('../controllers').todos;
 const todoItemsController = require('../controllers').todoItems;
 const questions = require('../controllers').questions;
 const answers = require('../controllers').answers;
+const results = require('../controllers').results;
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
@@ -35,6 +36,10 @@ module.exports = (app) => {
   app.delete(
     '/api/questions/:questionId/answers/:answerId', answers.destroy
   );
+  app.post('/api/results', results.create);
+  app.get('/api/results', results.list);
+  app.delete('/api/results/:resultId', results.destroy);
+
   app.all('/api/questions/:questionId/answers', (req, res) => res.status(405).send({
     message: 'Method Not Allowed',
   }));
