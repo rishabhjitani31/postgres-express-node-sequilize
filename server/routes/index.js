@@ -3,6 +3,7 @@ const todoItemsController = require('../controllers').todoItems;
 const questions = require('../controllers').questions;
 const answers = require('../controllers').answers;
 const results = require('../controllers').results;
+const users = require('../controllers').users;
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
@@ -39,6 +40,10 @@ module.exports = (app) => {
   app.post('/api/results', results.create);
   app.get('/api/results', results.list);
   app.delete('/api/results/:resultId', results.destroy);
+
+  /**Users crud api*/
+  app.post('/api/users', users.create);
+  app.get('/api/usersvalidate', users.list);
 
   app.all('/api/questions/:questionId/answers', (req, res) => res.status(405).send({
     message: 'Method Not Allowed',

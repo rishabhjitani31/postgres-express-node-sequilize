@@ -3,6 +3,7 @@ const todoItems = require('./todoitems');
 const questions = require('./questions');
 const answers = require('./answers');
 const results = require('./results');
+const users = require('./users');
 
 module.exports = {
   todos,
@@ -10,4 +11,5 @@ module.exports = {
   questions,
   answers,
   results,
+  users,
 };
