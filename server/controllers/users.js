@@ -25,22 +25,23 @@ module.exports = {
       });
   },
 
-  // retrieve(req, res) {
-  //   return Question
-  //     .findById(req.params.questionId, {
-  //       include: [{
-  //         model: Answer,
-  //         as: 'answerOptions',
-  //       }],
-  //     })
-  //     .then((question) => {
-  //       if (!question) {
-  //         return res.status(404).send({
-  //           message: 'Question Not Found',
-  //         });
-  //       }
-  //       return res.status(200).send(question);
-  //     })
-  //     .catch((error) => res.status(400).send(error));
-  // },
+  retrieve(req, res) {
+    return User
+      .find({
+        where: {
+          username: req.query.username,
+          password: req.query.password
+        }
+      })
+      .then((user) => {
+        console.log('user', user)
+        if (!user) {
+          return res.status(404).send({
+            message: 'User not found or password is invalid',
+          });
+        }
+        return res.status(200).send(user);
+      })
+      .catch((error) => res.status(400).send(error));
+  },
 };
