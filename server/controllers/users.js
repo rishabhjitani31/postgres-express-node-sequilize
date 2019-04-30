@@ -35,7 +35,7 @@ module.exports = {
       })
       .then((user) => {
         if (!user) {
-          return res.status(404).send({
+          return res.status(200).send({
             message: 'User not found or password is invalid',
             valid: false,
             data: {}
