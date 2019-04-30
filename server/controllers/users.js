@@ -34,13 +34,18 @@ module.exports = {
         }
       })
       .then((user) => {
-        console.log('user', user)
         if (!user) {
           return res.status(404).send({
             message: 'User not found or password is invalid',
+            valid: false,
+            data: {}
           });
         }
-        return res.status(200).send(user);
+        return res.status(200).send({
+          message: 'Entered user is a registered one',
+          valid: true,
+          data: user,
+        });
       })
       .catch((error) => res.status(400).send(error));
   },

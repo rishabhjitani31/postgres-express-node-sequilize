@@ -44,7 +44,7 @@ module.exports = (app) => {
   /**Users crud api*/
   app.post('/api/users', users.create);
   app.get('/api/usersvalidate', users.list);
-  app.get('/api/usersvalidationdata', users.retrieve);
+  app.get('/api/usersvalidation', users.retrieve);
 
   app.all('/api/questions/:questionId/answers', (req, res) => res.status(405).send({
     message: 'Method Not Allowed',
