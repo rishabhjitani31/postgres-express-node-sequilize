@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Results', {
+    return queryInterface.createTable('FinalResults', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,7 +17,7 @@ module.exports = {
       feedback: {
         type: Sequelize.STRING
       },
-      feedbackStatus: {
+      feedBackStatus: {
         type: Sequelize.STRING
       },
       name: {
@@ -40,6 +40,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Results');
+    return queryInterface.dropTable('FinalResults');
   }
 };

@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Result = sequelize.define('Result', {
+  const FinalResult = sequelize.define('FinalResult', {
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    feedbackStatus: {
+    feedBackStatus: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -30,5 +30,5 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     }
   });
-  return Result;
+  return FinalResult;
 };

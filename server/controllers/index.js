@@ -4,6 +4,7 @@ const questions = require('./questions');
 const answers = require('./answers');
 const results = require('./results');
 const users = require('./users');
+const finalresults = require('./finalresults');
 
 module.exports = {
   todos,
@@ -12,4 +13,5 @@ module.exports = {
   answers,
   results,
   users,
+  finalresults
 };

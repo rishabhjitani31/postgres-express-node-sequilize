@@ -4,6 +4,7 @@ const questions = require('../controllers').questions;
 const answers = require('../controllers').answers;
 const results = require('../controllers').results;
 const users = require('../controllers').users;
+const finalResults = require('../controllers').finalresults;
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
@@ -45,6 +46,11 @@ module.exports = (app) => {
   app.post('/api/users', users.create);
   app.get('/api/usersvalidate', users.list);
   app.get('/api/usersvalidation', users.retrieve);
+
+  /**Final Results crud api*/
+  app.post('/api/finalresults', finalResults.create);
+  app.get('/api/finalresults', finalResults.list);
+  app.delete('/api/finalresults/:resultId', finalResults.destroy);
 
   app.all('/api/questions/:questionId/answers', (req, res) => res.status(405).send({
     message: 'Method Not Allowed',
