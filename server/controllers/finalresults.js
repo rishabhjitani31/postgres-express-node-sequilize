@@ -1,4 +1,5 @@
 const FinalResult = require('../models').FinalResult;
+const nodemailer = require('nodemailer');
 
 module.exports = {
   create(req, res) {
@@ -13,7 +14,29 @@ module.exports = {
         age: req.body.age
       })
       .then((result) => {
-        res.status(200).send(result)
+        const transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'developer@simform.com',
+            pass: 'Simform.321456'
+          }
+        });
+
+        const mailOptions = {
+          from: 'developer@simform.com',
+          to: req.body.email,
+          subject: 'Power Skill',
+          html: '<p>Click here to access skillpower site<a href="http://localhost:3000">Click here</a></p>'
+        };
+
+        transporter.sendMail(mailOptions, function (error, info) {
+          if (error) {
+            res.status(400).send(error)
+          } else {
+            res.status(200).send(result)
+            console.log('Email sent: ' + info.response);
+          }
+        });
       })
       .catch((error) => res.status(400).send(error));
   },
