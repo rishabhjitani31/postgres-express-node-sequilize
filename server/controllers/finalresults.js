@@ -26,7 +26,7 @@ module.exports = {
           from: 'developer@simform.com',
           to: req.body.email,
           subject: 'Power Skill',
-          html: '<p>Click here to access skillpower site<a href="http://localhost:3000">Click here</a></p>'
+          html: '<p>Click here to access skillpower site <a href="http://localhost:3000">Click here</a></p>'
         };
 
         transporter.sendMail(mailOptions, function (error, info) {
