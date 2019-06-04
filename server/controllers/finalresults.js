@@ -74,7 +74,7 @@ module.exports = {
   regionDomain(req, res) {
     axios({
       method: 'get',
-      url: 'https://api.ipfind.com/me?auth=120b1113-77c9-4636-96b0-4d98be031dd2',
+      url: 'https://ipapi.co/json/',
     })
       .then(function (response) {
         console.log('response', response)
