@@ -1,5 +1,5 @@
 const FinalResult = require('../models').FinalResult;
-const nodemailer = require('nodemailer');
+const axios = require('axios');
 
 module.exports = {
   create(req, res) {
@@ -69,5 +69,20 @@ module.exports = {
           .catch((error) => res.status(400).send(error));
       })
       .catch((error) => res.status(400).send(error));
+  },
+
+  regionDomain(req, res) {
+    axios({
+      method: 'get',
+      url: 'https://api.ipfind.com/me?auth=120b1113-77c9-4636-96b0-4d98be031dd2',
+    })
+      .then(function (response) {
+        console.log('response', response)
+        res.send(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+        res.send(error)
+      });
   },
 };
