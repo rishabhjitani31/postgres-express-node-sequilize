@@ -28,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
     age: {
       type: DataTypes,
       allowNull: true
+    },
+    answers: {
+      type: DataTypes.JSON,
+      allowNull: true
     }
   });
   return FinalResult;

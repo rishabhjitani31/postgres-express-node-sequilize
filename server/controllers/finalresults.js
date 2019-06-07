@@ -10,33 +10,11 @@ module.exports = {
         performance: req.body.performance,
         feedBackStatus: req.body.feedBackStatus,
         name: req.body.name,
+        answers: req.body.answers,
       })
       .then((result) => {
         res.status(200).send(result)
         console.log('Email sent: ' + info.response);
-        // const transporter = nodemailer.createTransport({
-        //   service: 'gmail',
-        //   auth: {
-        //     user: 'developer@simform.com',
-        //     pass: 'Simform.321456'
-        //   }
-        // });
-
-        // const mailOptions = {
-        //   from: 'developer@simform.com',
-        //   to: req.body.email,
-        //   subject: 'Power Skill',
-        //   html: '<p>Click here to access skillpower site <a href="http://www.boostmywillpower.io/">boostmywillpower.io/</a></p>'
-        // };
-
-        // transporter.sendMail(mailOptions, function (error, info) {
-        //   if (error) {
-        //     res.status(400).send(error)
-        //   } else {
-        //     res.status(200).send(result)
-        //     console.log('Email sent: ' + info.response);
-        //   }
-        // });
       })
       .catch((error) => res.status(400).send(error));
   },
