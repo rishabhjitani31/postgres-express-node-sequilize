@@ -10,8 +10,6 @@ module.exports = {
         performance: req.body.performance,
         feedBackStatus: req.body.feedBackStatus,
         name: req.body.name,
-        gender: req.body.gender,
-        age: req.body.age
       })
       .then((result) => {
         res.status(200).send(result)

@@ -23,11 +23,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     gender: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     age: {
       type: DataTypes,
-      allowNull: false
+      allowNull: true
     }
   });
   return FinalResult;
